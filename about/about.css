@@ -145,10 +145,6 @@
   color: var(--color-text-muted);
 }
 
-.cta .button {
-  margin-top: var(--space-2);
-}
-
 @media (min-width: 40rem) {
   .profile {
     grid-template-columns: auto 1fr;

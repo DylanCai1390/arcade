@@ -14,7 +14,7 @@ CS 5610 Web Development, Fall 2026, Project 1: The Arcade.
 | Home | `/` | Intro, player card, game library, and how the site is built |
 | Mini Crossword | `/game/` | The playable puzzle, clues, instructions, and a solution reveal |
 | About | `/about/` | Experience, education, projects, and skills |
-| Contact | `/contact/` | Email, LinkedIn, GitHub, and what I’m looking for |
+| Contact | `/contact/` | Email, LinkedIn, and GitHub |
 
 ## Project structure
 
