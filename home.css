@@ -123,17 +123,6 @@
   box-shadow: calc(var(--pixel-offset) + 2px) calc(var(--pixel-offset) + 2px) 0 var(--color-accent);
 }
 
-.feature-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: var(--space-5);
-  margin-top: var(--space-5);
-}
-
-.feature-list .card p {
-  margin-bottom: 0;
-}
-
 @media (min-width: 48rem) {
   .hero {
     padding-block: var(--space-8);
