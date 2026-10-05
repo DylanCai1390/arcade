@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wenjun Cai’s Arcade</title>
+  <meta name="description" content="A growing collection of browser games by Wenjun Cai, a software engineer and computer science master’s student in Seattle.">
+  <meta name="theme-color" content="#161b22">
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Main">
+      <a class="site-title" href="./"><svg class="logo" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path class="logo-accent" d="M6 1h4v1h-4zM5 2h6v1h-6zM5 3h6v1h-6zM6 4h4v1h-4zM3 10h2v1h-2zM3 11h2v1h-2z"/><path class="logo-stick" d="M7 5h2v1h-2zM7 6h2v1h-2zM7 7h2v1h-2z"/><path class="logo-base" d="M2 8h12v1h-12zM1 9h14v1h-14zM1 10h2v1h-2zM5 10h10v1h-10zM1 11h2v1h-2zM5 11h10v1h-10zM1 12h14v1h-14zM2 13h12v1h-12z"/></svg><span>Wenjun Cai’s Arcade</span></a>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="./" aria-current="page"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M7 1h2v1h-2zM6 2h4v1h-4zM5 3h6v1h-6zM4 4h8v1h-8zM3 5h10v1h-10zM2 6h12v1h-12zM1 7h14v1h-14zM3 8h10v1h-10zM3 9h10v1h-10zM3 10h4v1h-4zM9 10h4v1h-4zM3 11h3v1h-3zM10 11h3v1h-3zM3 12h3v1h-3zM10 12h3v1h-3zM3 13h3v1h-3zM10 13h3v1h-3z"/></svg>Home</a></li>
+        <li><a class="nav-link" href="./game/"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 0h16v1h-16zM0 1h6v1h-6zM10 1h1v1h-1zM15 1h1v1h-1zM0 2h6v1h-6zM10 2h1v1h-1zM15 2h1v1h-1zM0 3h6v1h-6zM10 3h1v1h-1zM15 3h1v1h-1zM0 4h6v1h-6zM10 4h1v1h-1zM15 4h1v1h-1zM0 5h16v1h-16zM0 6h1v1h-1zM5 6h1v1h-1zM10 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM5 7h1v1h-1zM10 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM5 8h1v1h-1zM10 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM5 9h1v1h-1zM10 9h1v1h-1zM15 9h1v1h-1zM0 10h16v1h-16zM0 11h1v1h-1zM5 11h1v1h-1zM10 11h6v1h-6zM0 12h1v1h-1zM5 12h1v1h-1zM10 12h6v1h-6zM0 13h1v1h-1zM5 13h1v1h-1zM10 13h6v1h-6zM0 14h1v1h-1zM5 14h1v1h-1zM10 14h6v1h-6zM0 15h16v1h-16z"/></svg>Puzzle</a></li>
+        <li><a class="nav-link" href="./about/"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M5 2h6v1h-6zM4 3h8v1h-8zM4 4h8v1h-8zM4 5h8v1h-8zM4 6h8v1h-8zM5 7h6v1h-6zM2 9h12v1h-12zM1 10h14v1h-14zM1 11h14v1h-14zM1 12h14v1h-14zM1 13h14v1h-14z"/></svg>About</a></li>
+        <li><a class="nav-link" href="./contact/"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 3h16v1h-16zM0 4h2v1h-2zM14 4h2v1h-2zM0 5h1v1h-1zM2 5h2v1h-2zM12 5h2v1h-2zM15 5h1v1h-1zM0 6h1v1h-1zM3 6h2v1h-2zM11 6h2v1h-2zM15 6h1v1h-1zM0 7h1v1h-1zM4 7h2v1h-2zM10 7h2v1h-2zM15 7h1v1h-1zM0 8h1v1h-1zM5 8h6v1h-6zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM15 11h1v1h-1zM0 12h16v1h-16z"/></svg>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Player 1 · Wenjun Cai</p>
+          <h1 id="hero-heading">Welcome to the Arcade</h1>
+          <p class="lead">A small, growing collection of browser games built by a software engineer and computer science master’s student in Seattle. Start with the mini crossword, then come back as new cabinets light up.</p>
+          <div class="button-row">
+            <a class="button button--primary" href="game/">Play the crossword</a>
+            <a class="button button--secondary" href="about/">Meet the player</a>
+          </div>
+        </div>
+
+        <figure class="player-card">
+          <img class="player-avatar" src="assets/images/avatar.svg" alt="Pixel-art portrait of Wenjun Cai with curly brown hair and a black T-shirt" width="192" height="192">
+          <figcaption>
+            <dl class="player-stats">
+              <div>
+                <dt>Player</dt>
+                <dd>Wenjun Cai</dd>
+              </div>
+              <div>
+                <dt>Class</dt>
+                <dd>Software Engineer</dd>
+              </div>
+              <div>
+                <dt>Guild</dt>
+                <dd>Northeastern University, MSCS 2027</dd>
+              </div>
+              <div>
+                <dt>Base</dt>
+                <dd>Seattle, WA</dd>
+              </div>
+            </dl>
+            <p class="insert-coin" aria-hidden="true">Insert coin</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="games-heading">
+      <div class="container">
+        <p class="eyebrow">Select a game</p>
+        <h2 id="games-heading">Game library</h2>
+        <p>One new game arrives with each project this semester, and each one adds a new layer to the same site: static pages first, then interactivity, a server with saved games, and finally real-time multiplayer.</p>
+
+        <ul class="game-list plain-list">
+          <li>
+            <article class="game-card game-card--live">
+              <svg class="game-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 0h16v1h-16zM0 1h6v1h-6zM10 1h1v1h-1zM15 1h1v1h-1zM0 2h6v1h-6zM10 2h1v1h-1zM15 2h1v1h-1zM0 3h6v1h-6zM10 3h1v1h-1zM15 3h1v1h-1zM0 4h6v1h-6zM10 4h1v1h-1zM15 4h1v1h-1zM0 5h16v1h-16zM0 6h1v1h-1zM5 6h1v1h-1zM10 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM5 7h1v1h-1zM10 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM5 8h1v1h-1zM10 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM5 9h1v1h-1zM10 9h1v1h-1zM15 9h1v1h-1zM0 10h16v1h-16zM0 11h1v1h-1zM5 11h1v1h-1zM10 11h6v1h-6zM0 12h1v1h-1zM5 12h1v1h-1zM10 12h6v1h-6zM0 13h1v1h-1zM5 13h1v1h-1zM10 13h6v1h-6zM0 14h1v1h-1zM5 14h1v1h-1zM10 14h6v1h-6zM0 15h16v1h-16z"/></svg>
+              <p class="badge badge--live">Level 1 · Play now</p>
+              <h3>Mini Crossword</h3>
+              <p>A 5×5 grid with ten clues and an arcade theme. Type, tab, and check your letters as you go.</p>
+              <a class="button button--primary" href="game/">Play <span class="visually-hidden">Mini Crossword</span></a>
+            </article>
+          </li>
+          <li>
+            <article class="game-card">
+              <svg class="game-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 2h16v1h-16zM0 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM5 4h6v1h-6zM15 4h1v1h-1zM0 5h1v1h-1zM4 5h2v1h-2zM10 5h2v1h-2zM15 5h1v1h-1zM0 6h1v1h-1zM10 6h2v1h-2zM15 6h1v1h-1zM0 7h1v1h-1zM9 7h2v1h-2zM15 7h1v1h-1zM0 8h1v1h-1zM8 8h2v1h-2zM15 8h1v1h-1zM0 9h1v1h-1zM7 9h2v1h-2zM15 9h1v1h-1zM0 10h1v1h-1zM6 10h2v1h-2zM15 10h1v1h-1zM0 11h1v1h-1zM5 11h8v1h-8zM15 11h1v1h-1zM0 12h1v1h-1zM15 12h1v1h-1zM0 13h16v1h-16z"/></svg>
+              <p class="badge">Level 2 · Coming soon</p>
+              <h3>2048</h3>
+              <p>Slide numbered tiles around a 4×4 board and merge matching pairs until one reaches 2048.</p>
+            </article>
+          </li>
+          <li>
+            <article class="game-card">
+              <svg class="game-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M7 2h1v1h-1zM7 3h3v1h-3zM7 4h1v1h-1zM7 5h1v1h-1zM4 6h8v1h-8zM2 7h12v1h-12zM1 8h14v1h-14zM2 9h12v1h-12zM3 10h10v1h-10zM1 12h3v1h-3zM6 12h4v1h-4zM12 12h3v1h-3zM0 13h1v1h-1zM4 13h2v1h-2zM10 13h2v1h-2zM15 13h1v1h-1z"/></svg>
+              <p class="badge">Level 3 · Coming soon</p>
+              <h3>Battleship</h3>
+              <p>Hide your fleet, call your shots, and sink every ship before your opponent finds yours.</p>
+            </article>
+          </li>
+          <li>
+            <article class="game-card">
+              <svg class="game-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 2h16v1h-16zM0 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM2 4h2v1h-2zM12 4h2v1h-2zM15 4h1v1h-1zM0 5h1v1h-1zM2 5h2v1h-2zM12 5h2v1h-2zM15 5h1v1h-1zM0 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM7 7h2v1h-2zM15 7h1v1h-1zM0 8h1v1h-1zM7 8h2v1h-2zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM2 10h2v1h-2zM12 10h2v1h-2zM15 10h1v1h-1zM0 11h1v1h-1zM2 11h2v1h-2zM12 11h2v1h-2zM15 11h1v1h-1zM0 12h1v1h-1zM15 12h1v1h-1zM0 13h16v1h-16z"/></svg>
+              <p class="badge">Level 4 · Coming soon</p>
+              <h3>Liar’s Dice</h3>
+              <p>A real-time bluffing game for three or more players. Raise the bid or call the lie.</p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="build-heading">
+      <div class="container">
+        <p class="eyebrow">Under the hood</p>
+        <h2 id="build-heading">How this site is built</h2>
+        <ul class="feature-list plain-list">
+          <li class="card">
+            <h3>HTML and CSS only</h3>
+            <p>No JavaScript and no frameworks. The crossword’s typing, mistake checking, and solution reveal all come from plain HTML elements and modern CSS selectors.</p>
+          </li>
+          <li class="card">
+            <h3>Keyboard friendly</h3>
+            <p>Every link, square, and control can be reached with the Tab key, and the focused element always shows a bright yellow marker.</p>
+          </li>
+          <li class="card">
+            <h3>Phone first</h3>
+            <p>Layouts start at 320 pixels wide and grow from there. On small screens the navigation moves to a thumb-friendly bar at the bottom.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p>&copy; 2026 Wenjun Cai. Built with HTML and CSS, zero JavaScript.</p>
+      <ul class="social-list" aria-label="Find me online">
+        <li><a class="social-link" href="https://github.com/DylanCai1390"><svg class="social-icon" viewBox="0 0 496 512" aria-hidden="true"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg><span class="visually-hidden">GitHub</span></a></li>
+        <li><a class="social-link" href="https://www.linkedin.com/in/dylan-cai-285469389"><svg class="social-icon" viewBox="0 0 448 512" aria-hidden="true"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg><span class="visually-hidden">LinkedIn</span></a></li>
+        <li><a class="social-link" href="mailto:iamdylan1265@gmail.com"><svg class="social-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 3h16v1h-16zM0 4h2v1h-2zM14 4h2v1h-2zM0 5h1v1h-1zM2 5h2v1h-2zM12 5h2v1h-2zM15 5h1v1h-1zM0 6h1v1h-1zM3 6h2v1h-2zM11 6h2v1h-2zM15 6h1v1h-1zM0 7h1v1h-1zM4 7h2v1h-2zM10 7h2v1h-2zM15 7h1v1h-1zM0 8h1v1h-1zM5 8h6v1h-6zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM15 11h1v1h-1zM0 12h16v1h-16z"/></svg><span class="visually-hidden">Email</span></a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

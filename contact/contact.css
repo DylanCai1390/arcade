@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Contact page
+   ========================================================================== */
+
+.contact-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-5);
+}
+
+/* Each card is one big tap target: the link's ::after stretches over it */
+.contact-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.contact-card h3,
+.contact-card p {
+  margin: 0;
+}
+
+.contact-card p {
+  color: var(--color-text-muted);
+}
+
+.contact-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: var(--space-2);
+  fill: var(--color-accent);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  margin-top: auto;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.contact-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.contact-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--pixel-offset) var(--pixel-offset) 0 var(--color-accent);
+  transform: translate(-2px, -2px);
+}
+
+/* Move the focus ring from the link text to the whole card */
+.contact-link:focus-visible {
+  outline: none;
+}
+
+.contact-card:has(.contact-link:focus-visible) {
+  border-color: var(--color-accent);
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.looking-layout {
+  display: grid;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+/* Pixel-square bullets */
+.checklist {
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  position: relative;
+  max-width: var(--measure);
+  padding-left: var(--space-6);
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: var(--space-3);
+  height: var(--space-3);
+  background-color: var(--color-accent);
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.location-label {
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.location-note {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+@media (min-width: 48rem) {
+  .looking-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+}

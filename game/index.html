@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Crossword · Wenjun Cai’s Arcade</title>
+  <meta name="description" content="Play a 5×5 mini crossword with an arcade theme, built entirely with HTML and CSS.">
+  <meta name="theme-color" content="#161b22">
+  <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Main">
+      <a class="site-title" href="../"><svg class="logo" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path class="logo-accent" d="M6 1h4v1h-4zM5 2h6v1h-6zM5 3h6v1h-6zM6 4h4v1h-4zM3 10h2v1h-2zM3 11h2v1h-2z"/><path class="logo-stick" d="M7 5h2v1h-2zM7 6h2v1h-2zM7 7h2v1h-2z"/><path class="logo-base" d="M2 8h12v1h-12zM1 9h14v1h-14zM1 10h2v1h-2zM5 10h10v1h-10zM1 11h2v1h-2zM5 11h10v1h-10zM1 12h14v1h-14zM2 13h12v1h-12z"/></svg><span>Wenjun Cai’s Arcade</span></a>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="../"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M7 1h2v1h-2zM6 2h4v1h-4zM5 3h6v1h-6zM4 4h8v1h-8zM3 5h10v1h-10zM2 6h12v1h-12zM1 7h14v1h-14zM3 8h10v1h-10zM3 9h10v1h-10zM3 10h4v1h-4zM9 10h4v1h-4zM3 11h3v1h-3zM10 11h3v1h-3zM3 12h3v1h-3zM10 12h3v1h-3zM3 13h3v1h-3zM10 13h3v1h-3z"/></svg>Home</a></li>
+        <li><a class="nav-link" href="../game/" aria-current="page"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 0h16v1h-16zM0 1h6v1h-6zM10 1h1v1h-1zM15 1h1v1h-1zM0 2h6v1h-6zM10 2h1v1h-1zM15 2h1v1h-1zM0 3h6v1h-6zM10 3h1v1h-1zM15 3h1v1h-1zM0 4h6v1h-6zM10 4h1v1h-1zM15 4h1v1h-1zM0 5h16v1h-16zM0 6h1v1h-1zM5 6h1v1h-1zM10 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM5 7h1v1h-1zM10 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM5 8h1v1h-1zM10 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM5 9h1v1h-1zM10 9h1v1h-1zM15 9h1v1h-1zM0 10h16v1h-16zM0 11h1v1h-1zM5 11h1v1h-1zM10 11h6v1h-6zM0 12h1v1h-1zM5 12h1v1h-1zM10 12h6v1h-6zM0 13h1v1h-1zM5 13h1v1h-1zM10 13h6v1h-6zM0 14h1v1h-1zM5 14h1v1h-1zM10 14h6v1h-6zM0 15h16v1h-16z"/></svg>Puzzle</a></li>
+        <li><a class="nav-link" href="../about/"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M5 2h6v1h-6zM4 3h8v1h-8zM4 4h8v1h-8zM4 5h8v1h-8zM4 6h8v1h-8zM5 7h6v1h-6zM2 9h12v1h-12zM1 10h14v1h-14zM1 11h14v1h-14zM1 12h14v1h-14zM1 13h14v1h-14z"/></svg>About</a></li>
+        <li><a class="nav-link" href="../contact/"><svg class="nav-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 3h16v1h-16zM0 4h2v1h-2zM14 4h2v1h-2zM0 5h1v1h-1zM2 5h2v1h-2zM12 5h2v1h-2zM15 5h1v1h-1zM0 6h1v1h-1zM3 6h2v1h-2zM11 6h2v1h-2zM15 6h1v1h-1zM0 7h1v1h-1zM4 7h2v1h-2zM10 7h2v1h-2zM15 7h1v1h-1zM0 8h1v1h-1zM5 8h6v1h-6zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM15 11h1v1h-1zM0 12h16v1h-16z"/></svg>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="puzzle-page">
+    <div class="container">
+      <header class="page-intro">
+        <p class="eyebrow">Level 1 · Mini Crossword</p>
+        <h1>Mini Crossword</h1>
+        <p class="lead">Ten clues, twenty-three squares. Click or tab into a square, type a letter, and press Tab to move on.</p>
+      </header>
+
+      <div class="puzzle-layout">
+        <section class="puzzle-area" aria-labelledby="grid-heading">
+          <h2 id="grid-heading" class="visually-hidden">Puzzle grid</h2>
+          <form class="puzzle" aria-labelledby="grid-heading">
+            <div class="board-frame">
+              <div class="crossword-grid" role="group" aria-label="Crossword, 5 rows by 5 columns">
+            <span class="cell cell--block"></span>
+            <label class="cell" data-across="1" data-down="1"><span class="cell-number" aria-hidden="true">1</span><input class="cell-input" type="text" maxlength="1" pattern="[Ss]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 1, column 2. 1 Across, letter 1 of 4. 1 Down, letter 1 of 5." aria-describedby="clue-1-across clue-1-down"></label>
+            <label class="cell" data-across="1" data-down="2"><span class="cell-number" aria-hidden="true">2</span><input class="cell-input" type="text" maxlength="1" pattern="[Tt]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 1, column 3. 1 Across, letter 2 of 4. 2 Down, letter 1 of 5." aria-describedby="clue-1-across clue-2-down"></label>
+            <label class="cell" data-across="1" data-down="3"><span class="cell-number" aria-hidden="true">3</span><input class="cell-input" type="text" maxlength="1" pattern="[Aa]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 1, column 4. 1 Across, letter 3 of 4. 3 Down, letter 1 of 5." aria-describedby="clue-1-across clue-3-down"></label>
+            <label class="cell" data-across="1" data-down="4"><span class="cell-number" aria-hidden="true">4</span><input class="cell-input" type="text" maxlength="1" pattern="[Rr]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 1, column 5. 1 Across, letter 4 of 4. 4 Down, letter 1 of 4." aria-describedby="clue-1-across clue-4-down"></label>
+            <label class="cell" data-across="5" data-down="5"><span class="cell-number" aria-hidden="true">5</span><input class="cell-input" type="text" maxlength="1" pattern="[Ee]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 2, column 1. 5 Across, letter 1 of 5. 5 Down, letter 1 of 4." aria-describedby="clue-5-across clue-5-down"></label>
+            <label class="cell" data-across="5" data-down="1"><input class="cell-input" type="text" maxlength="1" pattern="[Ll]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 2, column 2. 5 Across, letter 2 of 5. 1 Down, letter 2 of 5." aria-describedby="clue-5-across clue-1-down"></label>
+            <label class="cell" data-across="5" data-down="2"><input class="cell-input" type="text" maxlength="1" pattern="[Ii]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 2, column 3. 5 Across, letter 3 of 5. 2 Down, letter 2 of 5." aria-describedby="clue-5-across clue-2-down"></label>
+            <label class="cell" data-across="5" data-down="3"><input class="cell-input" type="text" maxlength="1" pattern="[Tt]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 2, column 4. 5 Across, letter 4 of 5. 3 Down, letter 2 of 5." aria-describedby="clue-5-across clue-3-down"></label>
+            <label class="cell" data-across="5" data-down="4"><input class="cell-input" type="text" maxlength="1" pattern="[Ee]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 2, column 5. 5 Across, letter 5 of 5. 4 Down, letter 2 of 4." aria-describedby="clue-5-across clue-4-down"></label>
+            <label class="cell" data-across="6" data-down="5"><span class="cell-number" aria-hidden="true">6</span><input class="cell-input" type="text" maxlength="1" pattern="[Vv]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 3, column 1. 6 Across, letter 1 of 5. 5 Down, letter 2 of 4." aria-describedby="clue-6-across clue-5-down"></label>
+            <label class="cell" data-across="6" data-down="1"><input class="cell-input" type="text" maxlength="1" pattern="[Ii]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 3, column 2. 6 Across, letter 2 of 5. 1 Down, letter 3 of 5." aria-describedby="clue-6-across clue-1-down"></label>
+            <label class="cell" data-across="6" data-down="2"><input class="cell-input" type="text" maxlength="1" pattern="[Ll]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 3, column 3. 6 Across, letter 3 of 5. 2 Down, letter 3 of 5." aria-describedby="clue-6-across clue-2-down"></label>
+            <label class="cell" data-across="6" data-down="3"><input class="cell-input" type="text" maxlength="1" pattern="[Ll]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 3, column 4. 6 Across, letter 4 of 5. 3 Down, letter 3 of 5." aria-describedby="clue-6-across clue-3-down"></label>
+            <label class="cell" data-across="6" data-down="4"><input class="cell-input" type="text" maxlength="1" pattern="[Aa]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 3, column 5. 6 Across, letter 5 of 5. 4 Down, letter 3 of 4." aria-describedby="clue-6-across clue-4-down"></label>
+            <label class="cell" data-across="7" data-down="5"><span class="cell-number" aria-hidden="true">7</span><input class="cell-input" type="text" maxlength="1" pattern="[Ii]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 4, column 1. 7 Across, letter 1 of 5. 5 Down, letter 3 of 4." aria-describedby="clue-7-across clue-5-down"></label>
+            <label class="cell" data-across="7" data-down="1"><input class="cell-input" type="text" maxlength="1" pattern="[Dd]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 4, column 2. 7 Across, letter 2 of 5. 1 Down, letter 4 of 5." aria-describedby="clue-7-across clue-1-down"></label>
+            <label class="cell" data-across="7" data-down="2"><input class="cell-input" type="text" maxlength="1" pattern="[Ee]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 4, column 3. 7 Across, letter 3 of 5. 2 Down, letter 4 of 5." aria-describedby="clue-7-across clue-2-down"></label>
+            <label class="cell" data-across="7" data-down="3"><input class="cell-input" type="text" maxlength="1" pattern="[Aa]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 4, column 4. 7 Across, letter 4 of 5. 3 Down, letter 4 of 5." aria-describedby="clue-7-across clue-3-down"></label>
+            <label class="cell" data-across="7" data-down="4"><input class="cell-input" type="text" maxlength="1" pattern="[Ll]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 4, column 5. 7 Across, letter 5 of 5. 4 Down, letter 4 of 4." aria-describedby="clue-7-across clue-4-down"></label>
+            <label class="cell" data-across="8" data-down="5"><span class="cell-number" aria-hidden="true">8</span><input class="cell-input" type="text" maxlength="1" pattern="[Ll]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 5, column 1. 8 Across, letter 1 of 4. 5 Down, letter 4 of 4." aria-describedby="clue-8-across clue-5-down"></label>
+            <label class="cell" data-across="8" data-down="1"><input class="cell-input" type="text" maxlength="1" pattern="[Ee]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 5, column 2. 8 Across, letter 2 of 4. 1 Down, letter 5 of 5." aria-describedby="clue-8-across clue-1-down"></label>
+            <label class="cell" data-across="8" data-down="2"><input class="cell-input" type="text" maxlength="1" pattern="[Ss]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 5, column 3. 8 Across, letter 3 of 4. 2 Down, letter 5 of 5." aria-describedby="clue-8-across clue-2-down"></label>
+            <label class="cell" data-across="8" data-down="3"><input class="cell-input" type="text" maxlength="1" pattern="[Ss]" required placeholder=" " autocomplete="off" autocapitalize="characters" spellcheck="false" enterkeyhint="next" aria-label="Row 5, column 4. 8 Across, letter 4 of 4. 3 Down, letter 5 of 5." aria-describedby="clue-8-across clue-3-down"></label>
+            <span class="cell cell--block"></span>
+              </div>
+            </div>
+
+            <p class="puzzle-status" role="status">
+              <span class="status-playing">Fill every square to clear the level.</span>
+              <span class="status-clear">Level clear! Every letter is correct.</span>
+            </p>
+
+            <div class="puzzle-controls">
+              <label class="check-toggle">
+                <input class="check-toggle-input" type="checkbox">
+                Show mistakes
+              </label>
+              <button class="button button--secondary" type="reset">Clear grid</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="clues" aria-labelledby="clues-heading">
+          <h2 id="clues-heading">Clues</h2>
+          <div class="clue-columns">
+            <section aria-labelledby="across-heading">
+              <h3 id="across-heading">Across</h3>
+              <ol class="clue-list">
+              <li class="clue" id="clue-1-across" value="1">Rating earned for clearing a level, up to three at a time <span class="clue-length">(4)</span></li>
+              <li class="clue" id="clue-5-across" value="5">Top tier, like the initials on a high-score table <span class="clue-length">(5)</span></li>
+              <li class="clue" id="clue-6-across" value="6">Luxury vacation rental <span class="clue-length">(5)</span></li>
+              <li class="clue" id="clue-7-across" value="7">Perfect, like a speedrunner’s route <span class="clue-length">(5)</span></li>
+              <li class="clue" id="clue-8-across" value="8">“___ is more” (a minimalist design motto) <span class="clue-length">(4)</span></li>
+              </ol>
+            </section>
+            <section aria-labelledby="down-heading">
+              <h3 id="down-heading">Down</h3>
+              <ol class="clue-list">
+              <li class="clue" id="clue-1-down" value="1">Playground chute, or one page of a presentation <span class="clue-length">(5)</span></li>
+              <li class="clue" id="clue-2-down" value="2">Numbered squares you merge in 2048 <span class="clue-length">(5)</span></li>
+              <li class="clue" id="clue-3-down" value="3">Book of maps, or one image that packs every sprite in a game <span class="clue-length">(5)</span></li>
+              <li class="clue" id="clue-4-down" value="4">Not virtual <span class="clue-length">(4)</span></li>
+              <li class="clue" id="clue-5-down" value="5">Like most final bosses <span class="clue-length">(4)</span></li>
+              </ol>
+            </section>
+          </div>
+        </section>
+      </div>
+
+      <section class="section" aria-labelledby="how-heading">
+        <h2 id="how-heading">How to play</h2>
+        <ul class="how-list">
+          <li>Click or tap a white square, or press <kbd>Tab</kbd> to move into the grid, then type a letter.</li>
+          <li>Press <kbd>Tab</kbd> to go to the next square and <kbd>Shift</kbd> + <kbd>Tab</kbd> to go back. The across word you are in lights up, along with both clues for that square.</li>
+          <li>Turn on <strong>Show mistakes</strong> to mark wrong letters with a red slash as you type.</li>
+          <li>Fill every square correctly and the board lights up to tell you the level is clear.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="solution-heading">
+        <h2 id="solution-heading">Stuck?</h2>
+        <p>The answers are tucked away below. Opening them will not change your board, so you can peek at a single word and keep going.</p>
+        <details class="solution">
+          <summary>Reveal the solution</summary>
+          <div class="solution-body">
+            <div class="crossword-grid crossword-grid--solution" aria-hidden="true">
+              <span class="cell cell--block"></span>
+              <span class="cell"><span class="cell-number">1</span><span class="cell-letter">S</span></span>
+              <span class="cell"><span class="cell-number">2</span><span class="cell-letter">T</span></span>
+              <span class="cell"><span class="cell-number">3</span><span class="cell-letter">A</span></span>
+              <span class="cell"><span class="cell-number">4</span><span class="cell-letter">R</span></span>
+              <span class="cell"><span class="cell-number">5</span><span class="cell-letter">E</span></span>
+              <span class="cell"><span class="cell-letter">L</span></span>
+              <span class="cell"><span class="cell-letter">I</span></span>
+              <span class="cell"><span class="cell-letter">T</span></span>
+              <span class="cell"><span class="cell-letter">E</span></span>
+              <span class="cell"><span class="cell-number">6</span><span class="cell-letter">V</span></span>
+              <span class="cell"><span class="cell-letter">I</span></span>
+              <span class="cell"><span class="cell-letter">L</span></span>
+              <span class="cell"><span class="cell-letter">L</span></span>
+              <span class="cell"><span class="cell-letter">A</span></span>
+              <span class="cell"><span class="cell-number">7</span><span class="cell-letter">I</span></span>
+              <span class="cell"><span class="cell-letter">D</span></span>
+              <span class="cell"><span class="cell-letter">E</span></span>
+              <span class="cell"><span class="cell-letter">A</span></span>
+              <span class="cell"><span class="cell-letter">L</span></span>
+              <span class="cell"><span class="cell-number">8</span><span class="cell-letter">L</span></span>
+              <span class="cell"><span class="cell-letter">E</span></span>
+              <span class="cell"><span class="cell-letter">S</span></span>
+              <span class="cell"><span class="cell-letter">S</span></span>
+              <span class="cell cell--block"></span>
+            </div>
+            <div class="solution-answers">
+              <section aria-labelledby="answers-across-heading">
+                <h3 id="answers-across-heading">Across answers</h3>
+                <ol class="answer-list">
+                  <li value="1">STAR</li>
+                  <li value="5">ELITE</li>
+                  <li value="6">VILLA</li>
+                  <li value="7">IDEAL</li>
+                  <li value="8">LESS</li>
+                </ol>
+              </section>
+              <section aria-labelledby="answers-down-heading">
+                <h3 id="answers-down-heading">Down answers</h3>
+                <ol class="answer-list">
+                  <li value="1">SLIDE</li>
+                  <li value="2">TILES</li>
+                  <li value="3">ATLAS</li>
+                  <li value="4">REAL</li>
+                  <li value="5">EVIL</li>
+                </ol>
+              </section>
+            </div>
+          </div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-layout">
+      <p>&copy; 2026 Wenjun Cai. Built with HTML and CSS, zero JavaScript.</p>
+      <ul class="social-list" aria-label="Find me online">
+        <li><a class="social-link" href="https://github.com/DylanCai1390"><svg class="social-icon" viewBox="0 0 496 512" aria-hidden="true"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg><span class="visually-hidden">GitHub</span></a></li>
+        <li><a class="social-link" href="https://www.linkedin.com/in/dylan-cai-285469389"><svg class="social-icon" viewBox="0 0 448 512" aria-hidden="true"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg><span class="visually-hidden">LinkedIn</span></a></li>
+        <li><a class="social-link" href="mailto:iamdylan1265@gmail.com"><svg class="social-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 3h16v1h-16zM0 4h2v1h-2zM14 4h2v1h-2zM0 5h1v1h-1zM2 5h2v1h-2zM12 5h2v1h-2zM15 5h1v1h-1zM0 6h1v1h-1zM3 6h2v1h-2zM11 6h2v1h-2zM15 6h1v1h-1zM0 7h1v1h-1zM4 7h2v1h-2zM10 7h2v1h-2zM15 7h1v1h-1zM0 8h1v1h-1zM5 8h6v1h-6zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM15 11h1v1h-1zM0 12h16v1h-16z"/></svg><span class="visually-hidden">Email</span></a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

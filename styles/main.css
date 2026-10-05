@@ -1,0 +1,655 @@
+/* ==========================================================================
+   Wenjun Cai's Arcade: shared styles
+   --------------------------------------------------------------------------
+   1. Design tokens
+   2. Fonts
+   3. Base elements
+   4. Layout helpers
+   5. Site header and navigation
+   6. Site footer
+   7. Shared components
+   8. Utilities
+   9. Larger screens
+   10. Reduced motion
+   ========================================================================== */
+
+/* 1. Design tokens
+   Every color, size, and spacing value on the site comes from this block.
+   ========================================================================== */
+:root {
+  /* Neutral ramp: cool slate, darkest to lightest */
+  --color-neutral-950: #0e1116;
+  --color-neutral-900: #161b22;
+  --color-neutral-800: #21262d;
+  --color-neutral-700: #30363d;
+  --color-neutral-400: #9da7b3;
+  --color-neutral-100: #e6edf3;
+  --color-neutral-50: #f5f3ea;
+
+  /* Accent: arcade coin yellow, plus a pale tint of the same hue */
+  --color-accent: #ffd23f;
+  --color-accent-soft: #fff3c4;
+
+  /* Feedback: only used to flag wrong letters in the crossword */
+  --color-error: #b42318;
+
+  /* Semantic roles */
+  --color-bg: var(--color-neutral-950);
+  --color-surface: var(--color-neutral-900);
+  --color-surface-raised: var(--color-neutral-800);
+  --color-border: var(--color-neutral-700);
+  --color-text: var(--color-neutral-100);
+  --color-text-muted: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-950);
+  --color-paper: var(--color-neutral-50);
+  --color-scanline: rgb(255 255 255 / 0.04);
+
+  /* Typefaces */
+  --font-display: "Pixelify Sans", "Courier New", monospace;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+
+  /* Type scale: major third (1.25) from an 18px base */
+  --text-xs: 0.75rem;
+  --text-sm: 0.9rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.406rem;
+  --text-xl: 1.758rem;
+  --text-2xl: 2.197rem;
+  --text-3xl: 2.747rem;
+  --leading-tight: 1.2;
+  --leading-body: 1.6;
+  --measure: 65ch;
+
+  /* Spacing scale: 4px steps */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Layout */
+  --container-width: 64rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --header-height: 4rem;
+  --tabbar-height: 4.25rem;
+  --tap-target: 2.75rem;
+  --cell-size: clamp(2.75rem, 14vw, 4rem);
+  --cell-size-small: 2.5rem;
+
+  /* Shape and depth */
+  --border-width: 2px;
+  --radius: 2px;
+  --pixel-offset: 0.25rem;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 2. Fonts (self-hosted, SIL Open Font License)
+   ========================================================================== */
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../assets/fonts/atkinson-hyperlegible-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  src: url("../assets/fonts/atkinson-hyperlegible-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../assets/fonts/pixelify-sans-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 3. Base elements
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Keep in-page jumps from landing underneath the sticky header */
+  scroll-padding-top: calc(var(--header-height) + var(--space-4));
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  /* Room for the fixed tab bar on small screens */
+  padding-bottom: var(--tabbar-height);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  overflow-wrap: break-word;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--space-3);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 1.5rem + 2.5vw, var(--text-3xl));
+  font-weight: 600;
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+h4 {
+  font-size: var(--text-base);
+}
+
+h5,
+h6 {
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+h6 {
+  color: var(--color-text-muted);
+}
+
+p {
+  max-width: var(--measure);
+  margin: 0 0 var(--space-4);
+}
+
+ul,
+ol {
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-5);
+}
+
+li + li {
+  margin-top: var(--space-2);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-thickness var(--duration-fast) var(--ease-out);
+}
+
+a:hover {
+  text-decoration-thickness: 4px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* 4. Layout helpers
+   ========================================================================== */
+.container {
+  width: min(100% - 2 * var(--gutter), var(--container-width));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-7);
+}
+
+.section + .section {
+  border-top: var(--border-width) solid var(--color-surface-raised);
+}
+
+.page-intro {
+  padding-block: var(--space-7) var(--space-5);
+}
+
+/* 5. Site header and navigation
+   Mobile first: the title stays pinned at the top and the page links become
+   a tab bar pinned to the bottom of the screen. From 40rem up they share a
+   single sticky bar at the top.
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-4);
+  z-index: 30;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-weight: 700;
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: var(--color-surface);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--header-height);
+}
+
+.site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-title:hover {
+  color: var(--color-accent);
+}
+
+.logo {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.logo-accent {
+  fill: var(--color-accent);
+}
+
+.logo-stick {
+  fill: var(--color-text-muted);
+}
+
+.logo-base {
+  fill: currentColor;
+}
+
+.nav-list {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  margin: 0;
+  padding: 0 0 env(safe-area-inset-bottom);
+  list-style: none;
+  background-color: var(--color-surface);
+  border-top: var(--border-width) solid var(--color-border);
+}
+
+.nav-list li {
+  flex: 1;
+  margin: 0;
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: var(--tabbar-height);
+  padding: var(--space-2) var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+.nav-link:focus-visible {
+  outline-offset: -3px;
+}
+
+.nav-link[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+/* Pixel bar marking the current page (shape, not just color) */
+.nav-link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 25%;
+  left: 25%;
+  height: var(--space-1);
+  background-color: var(--color-accent);
+}
+
+.nav-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.nav-link:hover .nav-icon {
+  transform: translateY(-2px);
+}
+
+/* 6. Site footer
+   ========================================================================== */
+.site-footer {
+  margin-top: var(--space-8);
+  padding-block: var(--space-6);
+  background-color: var(--color-surface);
+  border-top: var(--border-width) solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.footer-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.footer-layout p {
+  margin: 0;
+}
+
+.social-list {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-list li + li {
+  margin-top: 0;
+}
+
+.social-link {
+  display: grid;
+  place-items: center;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.social-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+/* 7. Shared components
+   ========================================================================== */
+
+/* Small pixel-font label that sits above a heading */
+.eyebrow {
+  margin-bottom: var(--space-2);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+/* Buttons and button-styled links share one look: a chunky pixel block that
+   lifts on hover and presses down when activated. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  padding: var(--space-2) var(--space-5);
+  border: var(--border-width) solid var(--color-accent);
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.button--primary {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+  box-shadow: var(--pixel-offset) var(--pixel-offset) 0 var(--color-text);
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--color-accent);
+  box-shadow: var(--pixel-offset) var(--pixel-offset) 0 var(--color-border);
+}
+
+.button:hover {
+  transform: translate(-2px, -2px);
+}
+
+.button--primary:hover {
+  box-shadow: calc(var(--pixel-offset) + 2px) calc(var(--pixel-offset) + 2px) 0 var(--color-text);
+}
+
+.button--secondary:hover {
+  box-shadow: calc(var(--pixel-offset) + 2px) calc(var(--pixel-offset) + 2px) 0 var(--color-border);
+}
+
+.button:active {
+  transform: translate(var(--pixel-offset), var(--pixel-offset));
+  box-shadow: none;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.card {
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* Unstyled list used for grids of cards */
+.plain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plain-list > li + li {
+  margin-top: 0;
+}
+
+/* Small chips for skills and tech stacks */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li + li {
+  margin-top: 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-surface-raised);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+}
+
+.badge {
+  display: inline-block;
+  margin: 0;
+  padding: var(--space-1) var(--space-2);
+  border: var(--border-width) solid currentColor;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+/* 8. Utilities
+   ========================================================================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 9. Larger screens: one sticky bar at the top holds the title and links
+   ========================================================================== */
+@media (min-width: 40rem) {
+  body {
+    padding-bottom: 0;
+  }
+
+  .nav-list {
+    position: static;
+    gap: var(--space-1);
+    padding: 0;
+    background-color: transparent;
+    border-top: 0;
+  }
+
+  .nav-list li {
+    flex: none;
+  }
+
+  .nav-link {
+    flex-direction: row;
+    gap: var(--space-2);
+    min-height: var(--tap-target);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-base);
+  }
+
+  .nav-link[aria-current="page"]::after {
+    top: auto;
+    right: var(--space-3);
+    bottom: calc(-1 * var(--space-2));
+    left: var(--space-3);
+  }
+
+  .nav-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* 10. Reduced motion: honor the visitor's system setting
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

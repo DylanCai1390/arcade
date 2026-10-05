@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Home page
+   ========================================================================== */
+
+/* Hero: intro copy beside a "player card" with the avatar */
+.hero {
+  padding-block: var(--space-7);
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--color-scanline) 0 2px,
+    transparent 2px 4px
+  );
+  border-bottom: var(--border-width) solid var(--color-surface-raised);
+}
+
+.hero-layout {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.hero-copy .lead {
+  margin-bottom: var(--space-6);
+}
+
+.player-card {
+  justify-self: center;
+  width: min(100%, 20rem);
+  margin: 0;
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: calc(2 * var(--pixel-offset)) calc(2 * var(--pixel-offset)) 0 var(--color-accent);
+}
+
+.player-avatar {
+  width: 100%;
+  max-width: 12rem;
+  margin-inline: auto;
+  border: var(--border-width) solid var(--color-border);
+  image-rendering: pixelated;
+}
+
+.player-stats {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-sm);
+}
+
+.player-stats div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.player-stats dt {
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.player-stats dd {
+  margin: 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Blinks a few times on load, then stays lit (never flashes indefinitely) */
+.insert-coin {
+  margin: var(--space-4) 0 0;
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+  animation: blink 1s steps(1, end) 4;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Game library */
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.game-card h3,
+.game-card p {
+  margin: 0;
+}
+
+.game-card .badge {
+  color: var(--color-text-muted);
+}
+
+.game-card .button {
+  margin-top: auto;
+}
+
+.game-icon {
+  width: 3rem;
+  height: 3rem;
+  fill: var(--color-text-muted);
+}
+
+.game-card--live {
+  border-color: var(--color-accent);
+  box-shadow: var(--pixel-offset) var(--pixel-offset) 0 var(--color-accent);
+}
+
+.game-card--live .game-icon,
+.game-card--live .badge {
+  color: var(--color-accent);
+  fill: var(--color-accent);
+}
+
+.game-card--live:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: calc(var(--pixel-offset) + 2px) calc(var(--pixel-offset) + 2px) 0 var(--color-accent);
+}
+
+/* "How this site is built" cards */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.feature-list .card p {
+  margin-bottom: 0;
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    padding-block: var(--space-8);
+  }
+
+  .hero-layout {
+    grid-template-columns: 3fr 2fr;
+  }
+}
