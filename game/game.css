@@ -8,6 +8,62 @@
   justify-self: center;
 }
 
+.current-clue {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-2));
+  z-index: 5;
+  width: 0;
+  min-width: 100%;
+  min-height: 8rem;
+  margin-bottom: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-left: var(--space-1) solid var(--color-accent);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.current-clue p {
+  margin: 0;
+}
+
+.current-clue-hint {
+  color: var(--color-text-muted);
+}
+
+.current-clue-text {
+  display: none;
+}
+
+.current-clue-text + .current-clue-text {
+  margin-top: var(--space-2);
+}
+
+.current-clue-label {
+  color: var(--color-accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.puzzle:has(.cell:focus-within) .current-clue-hint {
+  display: none;
+}
+
+.puzzle:has(.cell[data-across="1"]:focus-within) [data-clue="1-across"],
+.puzzle:has(.cell[data-across="5"]:focus-within) [data-clue="5-across"],
+.puzzle:has(.cell[data-across="6"]:focus-within) [data-clue="6-across"],
+.puzzle:has(.cell[data-across="7"]:focus-within) [data-clue="7-across"],
+.puzzle:has(.cell[data-across="8"]:focus-within) [data-clue="8-across"],
+.puzzle:has(.cell[data-down="1"]:focus-within) [data-clue="1-down"],
+.puzzle:has(.cell[data-down="2"]:focus-within) [data-clue="2-down"],
+.puzzle:has(.cell[data-down="3"]:focus-within) [data-clue="3-down"],
+.puzzle:has(.cell[data-down="4"]:focus-within) [data-clue="4-down"],
+.puzzle:has(.cell[data-down="5"]:focus-within) [data-clue="5-down"] {
+  display: block;
+}
+
 .board-frame {
   width: max-content;
   margin-inline: auto;

@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mini Crossword · Wenjun Cai’s Arcade</title>
   <meta name="description" content="Play a 5×5 mini crossword with an arcade theme, built entirely with HTML and CSS.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wenjun Cai’s Arcade">
+  <meta property="og:title" content="Mini Crossword · Wenjun Cai’s Arcade">
+  <meta property="og:description" content="Play a 5×5 mini crossword with an arcade theme, built entirely with HTML and CSS.">
+  <meta property="og:url" content="https://dylancai1390.github.io/arcade/game/">
+  <meta property="og:image" content="https://dylancai1390.github.io/arcade/assets/images/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wenjun Cai’s Arcade: a pixel-art portrait beside the site title">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#161b22">
   <link rel="icon" href="../assets/images/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles/main.css">
@@ -29,13 +39,26 @@
       <header class="page-intro">
         <p class="eyebrow">Level 1 · Mini Crossword</p>
         <h1>Mini Crossword</h1>
-        <p class="lead">Ten clues, twenty-three squares. Click or tab into a square, type a letter, and press Tab to move on.</p>
+        <p class="lead">Ten clues, twenty-three squares. Click or tab into a square, type a letter, and press Tab to move on. To change a letter, delete it first.</p>
       </header>
 
       <div class="puzzle-layout">
         <section class="puzzle-area" aria-labelledby="grid-heading">
           <h2 id="grid-heading" class="visually-hidden">Puzzle grid</h2>
           <form class="puzzle" aria-labelledby="grid-heading">
+            <div class="current-clue" aria-hidden="true">
+              <p class="current-clue-hint">Select a square to see its clues.</p>
+              <p class="current-clue-text" data-clue="1-across"><span class="current-clue-label">1 Across</span> Rating earned for clearing a level, up to three at a time</p>
+              <p class="current-clue-text" data-clue="5-across"><span class="current-clue-label">5 Across</span> Top tier, like the initials on a high-score table</p>
+              <p class="current-clue-text" data-clue="6-across"><span class="current-clue-label">6 Across</span> Luxury vacation rental</p>
+              <p class="current-clue-text" data-clue="7-across"><span class="current-clue-label">7 Across</span> Perfect, like a speedrunner’s route</p>
+              <p class="current-clue-text" data-clue="8-across"><span class="current-clue-label">8 Across</span> “___ is more” (a minimalist design motto)</p>
+              <p class="current-clue-text" data-clue="1-down"><span class="current-clue-label">1 Down</span> Playground chute, or one page of a presentation</p>
+              <p class="current-clue-text" data-clue="2-down"><span class="current-clue-label">2 Down</span> Numbered squares you merge in 2048</p>
+              <p class="current-clue-text" data-clue="3-down"><span class="current-clue-label">3 Down</span> Book of maps, or one image that packs every sprite in a game</p>
+              <p class="current-clue-text" data-clue="4-down"><span class="current-clue-label">4 Down</span> Not virtual</p>
+              <p class="current-clue-text" data-clue="5-down"><span class="current-clue-label">5 Down</span> Like most final bosses</p>
+            </div>
             <div class="board-frame">
               <div class="crossword-grid" role="group" aria-label="Crossword, 5 rows by 5 columns">
             <span class="cell cell--block"></span>
@@ -112,6 +135,7 @@
         <h2 id="how-heading">How to play</h2>
         <ul class="how-list">
           <li>Click or tap a white square, or press <kbd>Tab</kbd> to move into the grid, then type a letter.</li>
+          <li>To change a letter, press <kbd>Backspace</kbd> first. Squares you reach with <kbd>Tab</kbd> select their letter, so you can type straight over it.</li>
           <li>Press <kbd>Tab</kbd> to go to the next square and <kbd>Shift</kbd> + <kbd>Tab</kbd> to go back. The across word you are in lights up, along with both clues for that square.</li>
           <li>Turn on <strong>Show mistakes</strong> to mark wrong letters with a red slash as you type.</li>
           <li>Fill every square correctly and the board lights up to tell you the level is clear.</li>
