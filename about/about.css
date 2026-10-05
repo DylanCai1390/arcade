@@ -1,7 +1,3 @@
-/* ==========================================================================
-   About page
-   ========================================================================== */
-
 .profile {
   display: grid;
   gap: var(--space-5);
@@ -21,7 +17,6 @@
   image-rendering: pixelated;
 }
 
-/* "On this page" jump links */
 .jump-nav {
   padding-bottom: var(--space-2);
 }
@@ -44,7 +39,6 @@
   color: var(--color-accent);
 }
 
-/* Experience timeline: a rule down the left with a pixel marker per job */
 .entry {
   position: relative;
   padding-left: var(--space-5);
@@ -117,7 +111,6 @@
   margin-bottom: 0;
 }
 
-/* Education and projects as card grids */
 .education-list,
 .project-list {
   display: grid;

@@ -1,14 +1,9 @@
-/* ==========================================================================
-   Contact page
-   ========================================================================== */
-
 .contact-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
   gap: var(--space-5);
 }
 
-/* Each card is one big tap target: the link's ::after stretches over it */
 .contact-card {
   position: relative;
   display: flex;
@@ -61,7 +56,6 @@
   transform: translate(-2px, -2px);
 }
 
-/* Move the focus ring from the link text to the whole card */
 .contact-link:focus-visible {
   outline: none;
 }
@@ -78,7 +72,6 @@
   align-items: start;
 }
 
-/* Pixel-square bullets */
 .checklist {
   padding: 0;
   list-style: none;

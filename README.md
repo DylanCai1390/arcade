@@ -107,5 +107,7 @@ The layout is mobile first and tested at 320px (phone) and 864px (desktop). Belo
 
 - **Fonts:** [Atkinson Hyperlegible](https://www.brailleinstitute.org/freefont/) by the Braille Institute and [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans) by Stefie Justprince. Both are self-hosted under the SIL Open Font License 1.1 (see `assets/fonts/`).
 - **Brand icons:** The GitHub and LinkedIn marks are from [Font Awesome Free](https://fontawesome.com) 6.7.2, licensed CC BY 4.0.
+- **Crossword words:** The answers were picked from common English words in [google-10000-english](https://github.com/first20hours/google-10000-english).
 - **Pixel art:** The avatar, logo, and game and navigation icons are original to this site.
 - **Visual inspiration:** The 8-bit portfolio style was inspired by [Pixel-Portfolio-Webite](https://github.com/bearlike/Pixel-Portfolio-Webite) by bearlike (MIT). No code was copied.
+- **Development:** Built with assistance from Claude.

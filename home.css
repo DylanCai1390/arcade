@@ -1,8 +1,3 @@
-/* ==========================================================================
-   Home page
-   ========================================================================== */
-
-/* Hero: intro copy beside a "player card" with the avatar */
 .hero {
   padding-block: var(--space-7);
   background-image: repeating-linear-gradient(
@@ -71,25 +66,6 @@
   text-align: right;
 }
 
-/* Blinks a few times on load, then stays lit (never flashes indefinitely) */
-.insert-coin {
-  margin: var(--space-4) 0 0;
-  color: var(--color-accent);
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-align: center;
-  text-transform: uppercase;
-  animation: blink 1s steps(1, end) 4;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-/* Game library */
 .game-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
@@ -147,7 +123,6 @@
   box-shadow: calc(var(--pixel-offset) + 2px) calc(var(--pixel-offset) + 2px) 0 var(--color-accent);
 }
 
-/* "How this site is built" cards */
 .feature-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));

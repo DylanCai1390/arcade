@@ -1,23 +1,4 @@
-/* ==========================================================================
-   Wenjun Cai's Arcade: shared styles
-   --------------------------------------------------------------------------
-   1. Design tokens
-   2. Fonts
-   3. Base elements
-   4. Layout helpers
-   5. Site header and navigation
-   6. Site footer
-   7. Shared components
-   8. Utilities
-   9. Larger screens
-   10. Reduced motion
-   ========================================================================== */
-
-/* 1. Design tokens
-   Every color, size, and spacing value on the site comes from this block.
-   ========================================================================== */
 :root {
-  /* Neutral ramp: cool slate, darkest to lightest */
   --color-neutral-950: #0e1116;
   --color-neutral-900: #161b22;
   --color-neutral-800: #21262d;
@@ -26,14 +7,11 @@
   --color-neutral-100: #e6edf3;
   --color-neutral-50: #f5f3ea;
 
-  /* Accent: arcade coin yellow, plus a pale tint of the same hue */
   --color-accent: #ffd23f;
   --color-accent-soft: #fff3c4;
 
-  /* Feedback: only used to flag wrong letters in the crossword */
   --color-error: #b42318;
 
-  /* Semantic roles */
   --color-bg: var(--color-neutral-950);
   --color-surface: var(--color-neutral-900);
   --color-surface-raised: var(--color-neutral-800);
@@ -44,11 +22,9 @@
   --color-paper: var(--color-neutral-50);
   --color-scanline: rgb(255 255 255 / 0.04);
 
-  /* Typefaces */
   --font-display: "Pixelify Sans", "Courier New", monospace;
   --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
 
-  /* Type scale: major third (1.25) from an 18px base */
   --text-xs: 0.75rem;
   --text-sm: 0.9rem;
   --text-base: 1.125rem;
@@ -60,7 +36,6 @@
   --leading-body: 1.6;
   --measure: 65ch;
 
-  /* Spacing scale: 4px steps */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -70,7 +45,6 @@
   --space-7: 3rem;
   --space-8: 4rem;
 
-  /* Layout */
   --container-width: 64rem;
   --gutter: clamp(1rem, 4vw, 2rem);
   --header-height: 4rem;
@@ -79,18 +53,14 @@
   --cell-size: clamp(2.75rem, 14vw, 4rem);
   --cell-size-small: 2.5rem;
 
-  /* Shape and depth */
   --border-width: 2px;
   --radius: 2px;
   --pixel-offset: 0.25rem;
 
-  /* Motion */
   --duration-fast: 150ms;
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* 2. Fonts (self-hosted, SIL Open Font License)
-   ========================================================================== */
 @font-face {
   font-family: "Atkinson Hyperlegible";
   src: url("../assets/fonts/atkinson-hyperlegible-400.woff2") format("woff2");
@@ -115,8 +85,6 @@
   font-display: swap;
 }
 
-/* 3. Base elements
-   ========================================================================== */
 *,
 *::before,
 *::after {
@@ -127,7 +95,6 @@ html {
   color-scheme: dark;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  /* Keep in-page jumps from landing underneath the sticky header */
   scroll-padding-top: calc(var(--header-height) + var(--space-4));
 }
 
@@ -136,7 +103,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  /* Room for the fixed tab bar on small screens */
   padding-bottom: var(--tabbar-height);
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -236,8 +202,6 @@ a:hover {
   color: var(--color-text-inverse);
 }
 
-/* 4. Layout helpers
-   ========================================================================== */
 .container {
   width: min(100% - 2 * var(--gutter), var(--container-width));
   margin-inline: auto;
@@ -255,11 +219,6 @@ a:hover {
   padding-block: var(--space-7) var(--space-5);
 }
 
-/* 5. Site header and navigation
-   Mobile first: the title stays pinned at the top and the page links become
-   a tab bar pinned to the bottom of the screen. From 40rem up they share a
-   single sticky bar at the top.
-   ========================================================================== */
 .skip-link {
   position: absolute;
   top: var(--space-2);
@@ -374,7 +333,6 @@ a:hover {
   color: var(--color-accent);
 }
 
-/* Pixel bar marking the current page (shape, not just color) */
 .nav-link[aria-current="page"]::after {
   content: "";
   position: absolute;
@@ -396,8 +354,6 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* 6. Site footer
-   ========================================================================== */
 .site-footer {
   margin-top: var(--space-8);
   padding-block: var(--space-6);
@@ -457,10 +413,6 @@ a:hover {
   fill: currentColor;
 }
 
-/* 7. Shared components
-   ========================================================================== */
-
-/* Small pixel-font label that sits above a heading */
 .eyebrow {
   margin-bottom: var(--space-2);
   color: var(--color-accent);
@@ -476,8 +428,6 @@ a:hover {
   font-size: var(--text-lg);
 }
 
-/* Buttons and button-styled links share one look: a chunky pixel block that
-   lifts on hover and presses down when activated. */
 .button {
   display: inline-flex;
   align-items: center;
@@ -540,7 +490,6 @@ a:hover {
   border-radius: var(--radius);
 }
 
-/* Unstyled list used for grids of cards */
 .plain-list {
   margin: 0;
   padding: 0;
@@ -551,7 +500,6 @@ a:hover {
   margin-top: 0;
 }
 
-/* Small chips for skills and tech stacks */
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -588,8 +536,6 @@ a:hover {
   text-transform: uppercase;
 }
 
-/* 8. Utilities
-   ========================================================================== */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -602,8 +548,6 @@ a:hover {
   border: 0;
 }
 
-/* 9. Larger screens: one sticky bar at the top holds the title and links
-   ========================================================================== */
 @media (min-width: 40rem) {
   body {
     padding-bottom: 0;
@@ -642,8 +586,6 @@ a:hover {
   }
 }
 
-/* 10. Reduced motion: honor the visitor's system setting
-   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

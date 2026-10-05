@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Mini crossword page
-   ========================================================================== */
-
 .puzzle-layout {
   display: grid;
   gap: var(--space-7);
@@ -12,7 +8,6 @@
   justify-self: center;
 }
 
-/* The board sits in an arcade "screen" with faint scanlines in the bezel */
 .board-frame {
   width: max-content;
   margin-inline: auto;
@@ -31,7 +26,6 @@
     box-shadow var(--duration-fast) var(--ease-out);
 }
 
-/* The grid itself: the 2px gaps show through as the ruled lines */
 .crossword-grid {
   display: grid;
   grid-template-columns: repeat(5, var(--cell-size));
@@ -48,8 +42,6 @@
   transition: background-color var(--duration-fast) var(--ease-out);
 }
 
-/* Blocked squares: darker than the ruling and hatched, so they read as
-   "closed" by texture as well as by color */
 .cell--block {
   background-color: var(--color-bg);
   background-image: repeating-linear-gradient(
@@ -90,15 +82,12 @@
   cursor: pointer;
 }
 
-/* The focused square turns coin yellow with an inset dark ring */
 .cell-input:focus-visible {
   background-color: var(--color-accent);
   outline: 3px solid var(--color-text-inverse);
   outline-offset: -6px;
 }
 
-/* Highlight the across word that holds focus, plus both of its clues.
-   Tab moves left to right, so the across word is the one being typed. */
 .puzzle-page:has(.cell[data-across="1"]:focus-within) .cell[data-across="1"],
 .puzzle-page:has(.cell[data-across="5"]:focus-within) .cell[data-across="5"],
 .puzzle-page:has(.cell[data-across="6"]:focus-within) .cell[data-across="6"],
@@ -121,8 +110,6 @@
   border-left-color: var(--color-accent);
 }
 
-/* "Show mistakes": a filled square whose letter fails its pattern gets a
-   red letter and a diagonal slash (a shape cue, not only a color cue) */
 .puzzle:has(.check-toggle-input:checked) .cell:has(.cell-input:not(:placeholder-shown):invalid) .cell-input {
   color: var(--color-error);
 }
@@ -140,7 +127,6 @@
   pointer-events: none;
 }
 
-/* Status line under the board */
 .puzzle-status {
   margin: var(--space-5) auto var(--space-4);
   font-weight: 700;
@@ -151,7 +137,6 @@
   display: none;
 }
 
-/* Every square holds the right letter: the level is clear */
 .puzzle:not(:has(.cell-input:invalid)) .status-playing {
   display: none;
 }
@@ -201,7 +186,6 @@
   cursor: pointer;
 }
 
-/* Clue lists */
 .clue-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
@@ -221,7 +205,6 @@
     border-color var(--duration-fast) var(--ease-out);
 }
 
-/* Body font for the numbers: in the pixel face a 5 reads like an S */
 .clue::marker,
 .answer-list li::marker {
   color: var(--color-accent);
@@ -234,7 +217,6 @@
   white-space: nowrap;
 }
 
-/* Keyboard keys in the instructions */
 kbd {
   padding: 0 var(--space-1);
   background-color: var(--color-surface-raised);
@@ -249,8 +231,6 @@ kbd {
   max-width: var(--measure);
 }
 
-/* Solution reveal: a native details/summary, so it works with mouse,
-   keyboard, touch, and screen readers without any scripting */
 .solution {
   max-width: 44rem;
   background-color: var(--color-surface);
