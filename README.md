@@ -1,114 +1,108 @@
 # Wenjun Cai’s Arcade
 
-A small, growing collection of browser games, plus a little about the person who built them. This first version is a static site made with HTML and CSS only, with zero JavaScript. Its centerpiece is a playable 5×5 mini crossword.
+A growing collection of browser games, plus a little about the person who built them. Version 2 is a SvelteKit app with two games: the mini crossword from Project 1 and a new 2048. The 2048 rules live in a separate npm package.
 
 - **Live site:** https://dylancai1390.github.io/arcade/
-- **Repository:** https://github.com/DylanCai1390/arcade
+- **This repository:** https://github.com/DylanCai1390/arcade
+- **Game logic package:** [@wenjuncai1390/arcade-core](https://www.npmjs.com/package/@wenjuncai1390/arcade-core) ([repository](https://github.com/DylanCai1390/arcade-core))
 
-CS 5610 Web Development, Fall 2026, Project 1: The Arcade.
+CS 5610 Web Development, Fall 2026, Project 2: 2048 and a Published Package.
 
 ## Pages
 
 | Page | Path | What it holds |
 | --- | --- | --- |
-| Home | `/` | Intro, player card, game library, and how the site is built |
-| Mini Crossword | `/game/` | The playable puzzle, clues, instructions, and a solution reveal |
+| Home | `/` | Intro, player card, and the game library |
+| Mini Crossword | `/game/` | The Project 1 crossword, now built from Svelte components |
+| 2048 | `/2048/` | The new game, with keyboard and on-screen controls |
 | About | `/about/` | Experience, education, projects, and skills |
 | Contact | `/contact/` | Email, LinkedIn, and GitHub |
 
 ## Project structure
 
 ```
-arcade/
-├── index.html            Home page
-├── home.css              Home page styles
-├── game/
-│   ├── index.html        Mini crossword
-│   └── game.css
-├── about/
-│   ├── index.html
-│   └── about.css
-├── contact/
-│   ├── index.html
-│   └── contact.css
-├── styles/
-│   └── main.css          Shared styles: design tokens, base, nav, footer, components
-└── assets/
-    ├── fonts/            Self-hosted WOFF2 files and their licenses
-    └── images/           Pixel-art avatar and logo (SVG)
+src/
+├── app.css                    Design tokens, fonts, and shared base styles
+├── app.html
+├── lib/
+│   ├── assets/                Avatar and self-hosted fonts
+│   ├── components/
+│   │   ├── SiteHeader.svelte  Title and navigation
+│   │   ├── SiteFooter.svelte
+│   │   ├── PageHead.svelte    Title, description, and share tags per page
+│   │   ├── Icon.svelte
+│   │   ├── home/              PlayerCard, GameCard
+│   │   ├── crossword/         Crossword, ClueList, CurrentClue, Solution
+│   │   └── game2048/          Board, ScoreBoard, Controls, GameMessage
+│   ├── crossword/puzzle.js    Puzzle data and clue numbering
+│   ├── game2048/game.svelte.js  Shared 2048 game state
+│   ├── icons.js
+│   └── site.js                Navigation and social links
+└── routes/                    One folder per page
+static/                        Favicon and share image
 ```
 
-Shared CSS lives in `styles/`, and each page keeps its own stylesheet next to its HTML. Every page loads `main.css` first, then its own file.
+## How the app uses the package
 
-## The crossword
+The 2048 rules are not in this repository. They come from `@wenjuncai1390/arcade-core`, installed from npm like any other dependency.
 
-The grid is a CSS Grid of 25 squares. Each open square is a `<label>` wrapping an `<input maxlength="1">`, and each input has an accessible name such as “Row 2, column 1. 5 Across, letter 1 of 5. 5 Down, letter 1 of 4.” Its clues are linked through `aria-describedby`, so screen reader users hear the clue text too.
+- `describeMove(board, direction)` gives the new board, the points earned, and where every tile went.
+- `spawn(board)` adds the new 2 or 4 after each move.
+- `hasMoves(board)` decides when the game is over.
 
-Everything interactive is done without scripting:
+The app keeps each tile as `{ id, value, row, col }`. After a move it follows each tile to its new square, so a tile keeps its `id` and the keyed `each` block moves it instead of rebuilding it.
 
-| Feature | How it works |
+## Svelte features used
+
+| Requirement | Where |
 | --- | --- |
-| Typing and moving | Native text inputs. Tab and Shift+Tab move between squares. To change a letter, delete it first, or Tab into the square so its letter is selected. |
-| Current clue bar | `:has()` shows the focused square’s across and down clues above the grid. The bar sticks under the header, so it stays visible above the phone keyboard. |
-| Word and clue highlighting | `:has()` + `:focus-within` light up the current across word and both of the focused square’s clues. |
-| Show mistakes | Each input has a one-letter `pattern` (for example `[Ss]`). With the checkbox on, `:invalid` squares get a red letter and a diagonal slash. |
-| Level clear | `.puzzle:not(:has(.cell-input:invalid))` swaps the status message and lights up the board. |
-| Clear grid | A native `<button type="reset">` inside the form. |
-| Reveal solution | A `<details>`/`<summary>` element, so it works with mouse, keyboard, and touch. |
+| `$state`, `$derived`, `$props` | `game.svelte.js` (tiles, score, best, board, won, over), `Crossword.svelte` (active square and its clues), every component’s props |
+| Keyed `each` block | 2048 tiles keyed by `tile.id` in `Board.svelte`; crossword squares, clues, and nav links |
+| Components beyond routes | 14 components in `src/lib/components` |
+| Callback props | `Controls` calls `onmove`, `GameMessage` calls `onrestart` and `oncontinue`; the page decides what happens |
+| Scoped styles | Every component has its own `<style>` block |
+| `class:` and `style:` directives | `Board.svelte` (`class:dark`, `style:--row`, `style:--col`), `Crossword.svelte` (`class:in-word`), `ClueList.svelte` (`class:active`) |
+| Transitions | New and merged tiles use `scale`; the win and game-over message uses `fade` |
+| Shared state in a `.svelte.js` file | `src/lib/game2048/game.svelte.js` is used by the 2048 page and by the home page’s best score |
 
-The puzzle is original to this site.
+Values that can be calculated from other state, such as the board, a win, or a game over, are `$derived`. The app does not use `$effect`.
 
-## Design system
+## Accessibility and responsive design
 
-All colors, type sizes, and spacing are custom properties defined once at the top of `styles/main.css`.
+- The whole site works with a keyboard alone, and focus is always visible.
+- 2048 listens for the arrow keys. On narrow or touch screens, on-screen arrow buttons appear below the board.
+- A visually hidden `aria-live` region announces the score and the end of the game. The board also has a text description of every row for screen readers.
+- Every tile number meets at least 4.5:1 contrast with its tile. The lowest is 5.09:1, on the 512 tile.
+- The board scales from 320px phones up to a 28rem maximum on wide screens, and every control is at least 44px.
+- Animations are short, and the tile transitions are turned off when the visitor prefers reduced motion.
 
-| Token | Value | Why |
-| --- | --- | --- |
-| `--color-neutral-950` (background) | `#0e1116` | Near-black slate. It reads as an arcade cabinet but is softer on the eyes than pure black. |
-| `--color-neutral-900` / `800` / `700` | `#161b22` / `#21262d` / `#30363d` | Surfaces, raised surfaces, and borders. Small steps create depth without extra hues. |
-| `--color-neutral-400` (muted text) | `#9da7b3` | Secondary text, at 7.8:1 contrast on the background. |
-| `--color-neutral-100` (text) | `#e6edf3` | Body text, at 16:1 contrast. |
-| `--color-neutral-50` (paper) | `#f5f3ea` | Crossword squares. Warm off-white, like newsprint. |
-| `--color-accent` | `#ffd23f` | The single accent, a classic arcade “coin” yellow. It is 13:1 on the background, so it works as text, buttons, and the focus ring. |
-| `--color-accent-soft` | `#fff3c4` | A pale tint of the accent, used only to highlight the active crossword word. |
-| `--color-error` | `#b42318` | Wrong-letter feedback only. 5.9:1 on the paper squares, always paired with a slash shape. |
-| Type scale | 0.75 → 2.75rem | A major third (1.25 ratio) from an 18px base. |
-| Spacing scale | 0.25 → 4rem | 4px steps: `--space-1` to `--space-8`. |
-| `--measure` | `65ch` | Caps line length for comfortable reading. |
-| `--tap-target` | `2.75rem` (44px) | Minimum size for every link, button, and square. |
+## Design
 
-**Typefaces**
+The site keeps the Project 1 design tokens: one coin-yellow accent, a slate neutral ramp, a 1.25 type scale, and a 4px spacing scale, all as custom properties in `src/app.css`.
 
-- **Pixelify Sans** is used only for the logo, page titles, labels, and buttons. It brings the arcade feel without being used for long text.
-- **Atkinson Hyperlegible** is used for everything else. The Braille Institute designed it so that easily confused letters like I, l, and 1 stay distinct, which matters for a word puzzle.
+The 2048 tiles use twelve shades of that same yellow hue, from `--tile-2` to `--tile-super`. They vary only in lightness: light tiles carry dark numbers, and the darkest tiles carry light numbers with a thin accent outline.
 
-**Pixel details**
+## Development
 
-The site uses square corners, offset “pixel” shadows, and buttons that lift on hover and press down when clicked. The logo, avatar, and icons are drawn on a 16×16 or 32×32 grid and rendered with `crispEdges`.
+```sh
+npm install
+npm run dev
+```
 
-## Accessibility
+To build the site as GitHub Pages serves it:
 
-- A skip link, landmarks (`header`, `nav`, `main`, `footer`), and one `h1` per page with a real heading outline. The About page uses h1 through h6.
-- A deliberate `:focus-visible` style everywhere: a 3px yellow ring, or a yellow fill with a dark inner ring on crossword squares.
-- The current page is marked with `aria-current="page"` and a yellow bar, so it is not shown by color alone.
-- All text meets WCAG AA contrast (4.5:1 or better).
-- Tap targets are at least 44×44px, including the crossword squares.
-- Animations are short, never loop forever, and are disabled under `prefers-reduced-motion`.
+```sh
+BASE_PATH=/arcade npm run build
+```
 
-## Responsive behavior
-
-The layout is mobile first and tested at 320px (phone) and 864px (desktop). Below 40rem, the title stays pinned at the top and the page links move to a tab bar fixed at the bottom of the screen, with matching padding so it never covers content. From 40rem up, a single sticky bar holds the title and links.
-
-## Validation
-
-- All four pages pass the [W3C Nu HTML Checker](https://validator.w3.org/nu/) with no errors or warnings.
-- All five stylesheets pass the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+Every push to `main` builds the site and deploys it to GitHub Pages through `.github/workflows/deploy.yml`.
 
 ## Credits
 
-- **Fonts:** [Atkinson Hyperlegible](https://www.brailleinstitute.org/freefont/) by the Braille Institute and [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans) by Stefie Justprince. Both are self-hosted under the SIL Open Font License 1.1 (see `assets/fonts/`).
+- **Fonts:** [Atkinson Hyperlegible](https://www.brailleinstitute.org/freefont/) by the Braille Institute and [Pixelify Sans](https://github.com/eifetx/Pixelify-Sans) by Stefie Justprince, both self-hosted under the SIL Open Font License 1.1.
 - **Brand icons:** The GitHub and LinkedIn marks are from [Font Awesome Free](https://fontawesome.com) 6.7.2, licensed CC BY 4.0.
 - **Crossword words:** The answers were picked from common English words in [google-10000-english](https://github.com/first20hours/google-10000-english).
 - **Pixel art:** The avatar, logo, social preview image, and game and navigation icons are original to this site.
 - **Visual inspiration:** The 8-bit portfolio style was inspired by [Pixel-Portfolio-Webite](https://github.com/bearlike/Pixel-Portfolio-Webite) by bearlike (MIT). No code was copied.
+- **2048:** The game is based on [2048](https://play2048.co/) by Gabriele Cirulli.
 - **Development:** Built with assistance from Claude.
