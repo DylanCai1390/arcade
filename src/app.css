@@ -63,7 +63,7 @@
 
 @font-face {
   font-family: "Atkinson Hyperlegible";
-  src: url("../assets/fonts/atkinson-hyperlegible-400.woff2") format("woff2");
+  src: url("./lib/assets/fonts/atkinson-hyperlegible-400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -71,7 +71,7 @@
 
 @font-face {
   font-family: "Atkinson Hyperlegible";
-  src: url("../assets/fonts/atkinson-hyperlegible-700.woff2") format("woff2");
+  src: url("./lib/assets/fonts/atkinson-hyperlegible-700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -79,7 +79,7 @@
 
 @font-face {
   font-family: "Pixelify Sans";
-  src: url("../assets/fonts/pixelify-sans-600.woff2") format("woff2");
+  src: url("./lib/assets/fonts/pixelify-sans-600.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;

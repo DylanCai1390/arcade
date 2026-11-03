@@ -1,0 +1,23 @@
+{
+  "name": "arcade",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Wenjun Cai's Arcade: a growing collection of browser games built with SvelteKit.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^4.0.1",
+    "@sveltejs/kit": "^3.1.1",
+    "@sveltejs/vite-plugin-svelte": "^7.2.0",
+    "svelte": "^5.57.3",
+    "vite": "^8.3.0"
+  },
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  }
+}
