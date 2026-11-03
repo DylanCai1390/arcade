@@ -4,6 +4,7 @@ export const SITE_URL = 'https://dylancai1390.github.io/arcade/';
 export const navItems = [
   { route: '/', label: 'Home', icon: 'home' },
   { route: '/game', label: 'Crossword', icon: 'puzzle' },
+  { route: '/2048', label: '2048', icon: 'tile' },
   { route: '/about', label: 'About', icon: 'person' },
   { route: '/contact', label: 'Contact', icon: 'mail' },
 ];

@@ -19,5 +19,8 @@
   },
   "imports": {
     "#lib/*": "./src/lib/*"
+  },
+  "dependencies": {
+    "@wenjuncai1390/arcade-core": "^1.1.0"
   }
 }

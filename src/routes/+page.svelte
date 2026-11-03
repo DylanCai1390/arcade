@@ -3,6 +3,9 @@
   import PageHead from '#lib/components/PageHead.svelte';
   import PlayerCard from '#lib/components/home/PlayerCard.svelte';
   import GameCard from '#lib/components/home/GameCard.svelte';
+  import { game } from '#lib/game2048/game.svelte.js';
+
+  const bestNote = $derived(game.best > 0 ? `Your best this visit: ${game.best}` : '');
 </script>
 
 <PageHead
@@ -16,12 +19,11 @@
       <h1 id="hero-heading">Welcome to the Arcade</h1>
       <p class="lead">
         A small, growing collection of browser games built by a software engineer and computer
-        science master’s student in Seattle. Start with the mini crossword, then come back as new
-        cabinets light up.
+        science master’s student in Seattle. Two cabinets are lit up, with more on the way.
       </p>
       <div class="button-row">
-        <a class="button button--primary" href={resolve('/game')}>Play the crossword</a>
-        <a class="button button--secondary" href={resolve('/about')}>Meet the player</a>
+        <a class="button button--primary" href={resolve('/2048')}>Play 2048</a>
+        <a class="button button--secondary" href={resolve('/game')}>Play the crossword</a>
       </div>
     </div>
     <PlayerCard />
@@ -53,6 +55,8 @@
           title="2048"
           level={2}
           icon="tile"
+          href={resolve('/2048')}
+          note={bestNote}
           description="Slide numbered tiles around a 4×4 board and merge matching pairs until one reaches 2048."
         />
       </li>

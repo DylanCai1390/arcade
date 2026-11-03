@@ -12,6 +12,20 @@
 
   --color-error: #b42318;
 
+  --tile-2: #f6f0df;
+  --tile-4: #f4e8c2;
+  --tile-8: #f7df97;
+  --tile-16: #fbd76a;
+  --tile-32: #ffcf3d;
+  --tile-64: #ffc414;
+  --tile-128: #ebb000;
+  --tile-256: #c29100;
+  --tile-512: #a87e00;
+  --tile-1024: #826200;
+  --tile-2048: #6e5200;
+  --tile-super: #594300;
+  --tile-text-dark: var(--color-neutral-950);
+  --tile-text-light: var(--color-neutral-50);
 
   --color-bg: var(--color-neutral-950);
   --color-surface: var(--color-neutral-900);
@@ -22,6 +36,7 @@
   --color-text-inverse: var(--color-neutral-950);
   --color-paper: var(--color-neutral-50);
   --color-scanline: rgb(255 255 255 / 0.04);
+  --color-overlay: rgb(14 17 22 / 0.9);
 
   --font-display: "Pixelify Sans", "Courier New", monospace;
   --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
@@ -51,6 +66,8 @@
   --header-height: 4rem;
   --tabbar-height: 4.25rem;
   --tap-target: 2.75rem;
+  --board-size: min(100vw - 2 * var(--gutter), 28rem);
+  --board-gap: 0.5rem;
   --cell-size: clamp(2.75rem, 14vw, 4rem);
   --cell-size-small: 2.5rem;
 
